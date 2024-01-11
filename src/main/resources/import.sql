@@ -47,3 +47,5 @@ INSERT INTO tb_lesson_done (lesson_id, user_id, offer_id) VALUES (2, 1, 1);
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Primeiro feedback', TIMESTAMP WITH TIME ZONE '2020-11-20T14:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Segundo feedback', TIMESTAMP WITH TIME ZONE '2020-11-20T15:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Terceiro feedback', TIMESTAMP WITH TIME ZONE '2020-11-20T16:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
+
+INSERT INTO tb_deliver (uri, moment, status, feedback, correct_Count, lesson_id, user_id, offer_id) VALUES ('https://entrega-1.com', TIMESTAMP WITH TIME ZONE '2020-11-20T16:00:00Z', 0, null, null, 4, 1, 1);
