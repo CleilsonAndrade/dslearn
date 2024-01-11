@@ -13,7 +13,7 @@ INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 3);
 
-INSERT INTO tb_course (name, img_Uri, img_Gray_Uri) VALUES ('Bootcamp  HTML', 'https://image.com', 'https://image-gray.com');
+INSERT INTO tb_course (name, img_Uri, img_Gray_Uri) VALUES ('BootCamp  HTML', 'https://image.com', 'https://image-gray.com');
 
 INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES('1.0', TIMESTAMP WITH TIME ZONE '2020-11-20T03:00:00Z', TIMESTAMP WITH TIME ZONE '2021-11-20T03:00:00Z', 1);
 INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES('2.0', TIMESTAMP WITH TIME ZONE '2020-12-20T03:00:00Z', TIMESTAMP WITH TIME ZONE '2021-12-20T03:00:00Z', 1);
@@ -23,7 +23,7 @@ INSERT INTO tb_resource (title, description, position, img_Uri, type, offer_id) 
 INSERT INTO tb_resource (title, description, position, img_Uri, type, offer_id) VALUES ('Lives', 'Lives para a turma', 3, 'https://image.com', 0, 1);
 
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capitulo 1', 'Material', 1, 'https://image.com', 1, null);
-INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capitulo 2', 'Comecando', 2, 'https://image.com', 1, 1);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capitulo 2', 'Começando', 2, 'https://image.com', 1, 1);
 INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Capitulo 3', 'Finalizando', 3, 'https://image.com', 1, 2);
 
 INSERT INTO tb_enrollment (user_id, offer_id, enroll_Moment, refund_Moment, available, only_Update) VALUES (1, 1,  TIMESTAMP WITH TIME ZONE '2020-11-20T13:00:00Z', null, true, false);
@@ -49,3 +49,13 @@ INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Segund
 INSERT INTO tb_notification (text, moment, read, route, user_id) VALUES ('Terceiro feedback', TIMESTAMP WITH TIME ZONE '2020-11-20T16:00:00Z', true, '/offers/1/resource/1/sections/1', 1);
 
 INSERT INTO tb_deliver (uri, moment, status, feedback, correct_Count, lesson_id, user_id, offer_id) VALUES ('https://entrega-1.com', TIMESTAMP WITH TIME ZONE '2020-11-20T16:00:00Z', 0, null, null, 4, 1, 1);
+
+INSERT INTO tb_topic (title, body, moment, author_id, offer_id, lesson_id) VALUES ('Tópico 1', 'Conteúdo tópico', TIMESTAMP WITH TIME ZONE '2020-11-20T16:00:00Z', 1, 1, 1);
+INSERT INTO tb_topic (title, body, moment, author_id, offer_id, lesson_id) VALUES ('Tópico 1', 'Conteúdo tópico', TIMESTAMP WITH TIME ZONE '2020-11-20T16:00:00Z', 2, 1, 1);
+INSERT INTO tb_topic (title, body, moment, author_id, offer_id, lesson_id) VALUES ('Tópico 1', 'Conteúdo tópico', TIMESTAMP WITH TIME ZONE '2020-11-20T16:00:00Z', 2, 1, 1);
+INSERT INTO tb_topic (title, body, moment, author_id, offer_id, lesson_id) VALUES ('Tópico 1', 'Conteúdo tópico', TIMESTAMP WITH TIME ZONE '2020-11-20T16:00:00Z', 1, 1, 2);
+INSERT INTO tb_topic (title, body, moment, author_id, offer_id, lesson_id) VALUES ('Tópico 1', 'Conteúdo tópico', TIMESTAMP WITH TIME ZONE '2020-11-20T16:00:00Z', 1, 1, 2);
+INSERT INTO tb_topic (title, body, moment, author_id, offer_id, lesson_id) VALUES ('Tópico 1', 'Conteúdo tópico', TIMESTAMP WITH TIME ZONE '2020-11-20T16:00:00Z', 2, 1, 3);
+
+INSERT INTO tb_topic_likes (topic_id, user_id) VALUES (1, 2);
+INSERT INTO tb_topic_likes (topic_id, user_id) VALUES (2, 1);
