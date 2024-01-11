@@ -1,21 +1,16 @@
 package br.com.cleilsonandrade.dslearn.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import br.com.cleilsonandrade.dslearn.entities.enums.ResourceType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_resource")
-public class Resource {
+@Table(name = "tb_section")
+public class Section {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -23,27 +18,27 @@ public class Resource {
   private String description;
   private Integer position;
   private String imgUri;
-  private ResourceType type;
 
   @ManyToOne
-  @JoinColumn(name = "offer_id")
-  private Offer offer;
+  @JoinColumn(name = "resource_id")
+  private Resource resource;
 
-  @OneToMany(mappedBy = "resource")
-  private List<Section> sections = new ArrayList<>();
+  @ManyToOne
+  @JoinColumn(name = "prerequisite_id")
+  private Section prerequisite;
 
-  public Resource() {
+  public Section() {
   }
 
-  public Resource(Long id, String title, String description, Integer position, String imgUri, ResourceType type,
-      Offer offer) {
+  public Section(Long id, String title, String description, Integer position, String imgUri, Resource resource,
+      Section prerequisite) {
     this.id = id;
     this.title = title;
     this.description = description;
     this.position = position;
     this.imgUri = imgUri;
-    this.type = type;
-    this.offer = offer;
+    this.resource = resource;
+    this.prerequisite = prerequisite;
   }
 
   public Long getId() {
@@ -86,20 +81,20 @@ public class Resource {
     this.imgUri = imgUri;
   }
 
-  public ResourceType getType() {
-    return type;
+  public Resource getResource() {
+    return resource;
   }
 
-  public void setType(ResourceType type) {
-    this.type = type;
+  public void setResource(Resource resource) {
+    this.resource = resource;
   }
 
-  public Offer getOffer() {
-    return offer;
+  public Section getPrerequisite() {
+    return prerequisite;
   }
 
-  public void setOffer(Offer offer) {
-    this.offer = offer;
+  public void setPrerequisite(Section prerequisite) {
+    this.prerequisite = prerequisite;
   }
 
   @Override
@@ -118,7 +113,7 @@ public class Resource {
       return false;
     if (getClass() != obj.getClass())
       return false;
-    Resource other = (Resource) obj;
+    Section other = (Section) obj;
     if (id == null) {
       if (other.id != null)
         return false;
